@@ -2,77 +2,47 @@
 % !TeX encoding = UTF-8
 % !TeX spellcheck = pt_PT
 % !TeX root = main
+% IPBeja presentation starter. Academic-work layout rules apply to written reports,
+% not to slides; use the companion mecc-report-template for formal submissions.
 \documentclass[xcolor=svgnames,t]{beamer}
 \usepackage[portuguese]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage[backend=biber,citestyle=numeric,sorting=none,style=ieee]{biblatex}
-\usepackage[font=footnotesize]{caption}
-\usepackage[absolute, overlay]{textpos}
-\usepackage[sfdefault]{noto}
-\usepackage[makeroom]{cancel}
-\usepackage{booktabs, comment}
-\usepackage{amsmath}
-\usepackage{csquotes}
-\usepackage{textpos}
-\usepackage{tikz}
-\usepackage{multicol}
-\usepackage{eurosym}
-
+\usepackage{fontspec}
+\setmainfont[Path=fonts/,Extension=.otf,UprightFont=texgyrepagella-regular,BoldFont=texgyrepagella-bold,ItalicFont=texgyrepagella-italic,BoldItalicFont=texgyrepagella-bolditalic]{texgyrepagella-regular}
+\usepackage{graphicx,booktabs,amsmath,csquotes,tikz,multicol}
+\usepackage[backend=biber,style=apa,sorting=nyt]{biblatex}
+\DeclareLanguageMapping{portuguese}{portuguese-apa}
 \addbibresource{main.bib}
 
-% school colours
+% IPBeja palette; presentation styling is intentionally separate from report norms.
 \definecolor{ipbgreen}{RGB}{166,204,59}
 \definecolor{ipbbrown}{RGB}{153,80,42}
 \definecolor{estigred}{RGB}{150,0,24}
-
-\usetheme{Rochester} %Modern Like God foretold
+\usetheme{Rochester}
 \useoutertheme{infolines}
 \usecolortheme[named=estigred]{structure}
-\setbeamercolor{title in head/foot}{fg=estigred, bg=}
-\setbeamercolor{author in head/foot}{bg=estigred}
-\setbeamertemplate{page number in head/foot}{}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
 
-% title and settings
-\title[Grupo 1]{Exemplo de apresentação}
-\subtitle{Trabalho de Grupo}
-\institute[]{Escola Superior de Tecnologia e Gestão\\Instituto Politécnico de Beja}
-\titlegraphic{\includegraphics[height=2.0cm]{estig.png}}
-\author[Membros do Grupo]{Gonçalo Amaro - 17440\\Sebastião Pereira - 21932}
-\institute[]{Escola Superior de Tecnologia e Gestão\\Instituto Politécnico de Beja}
-\logo{\includegraphics[height=1.0cm]{estig.png}}
-\date{7 de maio de 2022}
+% Replace example metadata before use.
+\title[Trabalho]{[Título da apresentação]}
+\subtitle{[Subtítulo opcional]}
+\author{[Nome(s) completo(s)]}
+\institute{Escola Superior de Tecnologia e Gestão\\Instituto Politécnico de Beja}
+\date{Beja, \the\year}
 
-% presentation controls
-\addtobeamertemplate{navigation symbols}{}{%
-    \usebeamerfont{footline}%
-    \usebeamercolor[fg]{footline}%
-    \hspace{1em}%
-    \insertframenumber/\inserttotalframenumber
-}
-
-%start
 \begin{document}
-
-%cover
-{
-\setbeamertemplate{headline}{} % hide useless top bar
-\logo{} % hide redundant logo
-\begin{frame}
-  \vspace{-1cm} % damn son, looks good
-  \maketitle
+\begin{frame}[plain]
+  \titlepage
 \end{frame}
-}
 
-%toc
-\begin{frame}
-  \texttt{}{A estrutura desta apresentação está organizada da seguinte forma:}
+\begin{frame}{Estrutura}
   \tableofcontents[hideallsubsections]
 \end{frame}
 
-%input slides/chapters (cut and paste to separate files later)
+% Organise content in slides/<topic>.tex; cite sources using APA author-date.
 \input{slides/sample}
 
-\clearpage
-\printbibliography[heading=bibintoc]
-
+\begin{frame}[allowframebreaks]{Referências Bibliográficas}
+  \printbibliography
+\end{frame}
 \end{document}
